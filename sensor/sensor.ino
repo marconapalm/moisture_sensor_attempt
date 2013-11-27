@@ -11,9 +11,9 @@ static int LED_PIN = 13;              // LED pin number
 static int threshold = 800;           // threshold for activating the LED
 
 static long SPEED=9600;               // speed of serial data's transmission
+static long interval_300ms=300;       // interval of 300 milliseconds
+static long interval_2s=2000;         // interval of 2 seconds
 static long interval_30m=1800000;     // interval of 30 minutes in milliseconds
-static long interval_300ms=300;       // interval of 2 seconds
-static long interval_2s=2000;         // interval of 5 seconds
 
 static char message[]="Feed me!";     // message to print on the monitor
 
@@ -40,10 +40,10 @@ void loop()
   if (reading<=threshold){
     flash();
     Serial.println(message);          // print the message to the monitor
-    delay(interval_2s);               // wait for 5 seconds
+    delay(interval_2s);               // wait 2 seconds
   }
   else{
     digitalWrite(LED_PIN, LOW);       // turn off the LED
-    delay(interval_30m);
+    delay(interval_30m);              // wait 30 minutes
   }
 }
