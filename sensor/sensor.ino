@@ -15,7 +15,6 @@ static long interval_30m=1800000;     // interval of 30 minutes in milliseconds
 static long interval_300ms=300;       // interval of 2 seconds
 static long interval_2s=2000;         // interval of 5 seconds
 
-
 static char message[]="Feed me!";     // message to print on the monitor
 
 int reading;                          // analog sensor reading
@@ -27,16 +26,14 @@ void setup()
     Serial.begin(SPEED);              // start sending and receiving serial data
 }
 
-
 void flash(){
    digitalWrite(LED_PIN, HIGH);       // turn on the LED
-   delay(interval_300ms);              // wait one second
+   delay(interval_300ms);             // wait 300 milliseconds
    digitalWrite(LED_PIN, LOW);        // turn off the LED
 }
 
 void loop()
 {
-  
   reading = analogRead(SENSOR_PIN);   // get the sensor reading 
   led_state = digitalRead(LED_PIN);   // get the current LED state
   
